@@ -7,10 +7,14 @@ public class LevelGenerator : MonoBehaviour
     public static LevelGenerator levelGenerator;
 
     public Transform mapBeginingPosition;
-    
+
+    public GameObject hollowTerrain;
     public GameObject player;
     public GameObject terrain;
     public GameObject wall;
+    public GameObject xWall;
+    public GameObject vWall;
+    public GameObject hWall;
     public GameObject rock;
     public GameObject box;
     public GameObject door;
@@ -104,6 +108,8 @@ public class LevelGenerator : MonoBehaviour
                 switch (level[i][j])
                 {
                     case 'P':
+                        GameObject newHollowTerrain = Instantiate(hollowTerrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newHollowTerrain.transform.parent = terrainHolder;
                         GameObject newPlayer = Instantiate(player, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newPlayer.name = "Player";
                         newPlayer.transform.parent = levelHolder;
@@ -117,6 +123,18 @@ public class LevelGenerator : MonoBehaviour
                     case 'W':
                         GameObject newWall = Instantiate(wall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newWall.transform.parent = wallHolder;
+                        break;
+                    case 'V':
+                        GameObject newVWall = Instantiate(vWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newVWall.transform.parent = wallHolder;
+                        break;
+                    case 'H':
+                        GameObject newHWall = Instantiate(hWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newHWall.transform.parent = wallHolder;
+                        break;
+                    case 'X':
+                        GameObject newXWall = Instantiate(xWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newXWall.transform.parent = wallHolder;
                         break;
                     case 'R':
                         GameObject newTerrainRock = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
