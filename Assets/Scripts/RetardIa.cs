@@ -31,6 +31,29 @@ public class RetardIa : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        this.transform.position += speed * velocity;
 	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        this.transform.position += speed * -velocity * 0.1f;
+        direction = (int)Random.Range(0, 3.999999f);
+        switch (direction)
+        {
+            case 0:
+                speed = new Vector3(0, 1, 0);
+                break;
+            case 1:
+                speed = new Vector3(0, -1, 0);
+                break;
+            case 2:
+                speed = new Vector3(1, 0, 0);
+                break;
+            case 3:
+                speed = new Vector3(-1, 0, 0);
+                break;
+            default:
+                speed = new Vector3(1, 0, 0);
+                break;
+        }
+    }
 }
