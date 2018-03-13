@@ -71,8 +71,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4284449033347886}
   - component: {fileID: 33966332197565700}
-  - component: {fileID: 65147050180858166}
   - component: {fileID: 23170758454834456}
+  - component: {fileID: 61074329011421270}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -1090,8 +1090,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4879842456357534}
   - component: {fileID: 33212242109497604}
-  - component: {fileID: 65439724990315800}
   - component: {fileID: 23660108949259632}
+  - component: {fileID: 61314502566792754}
   m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2865,30 +2865,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009459699526272}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65147050180858166
-BoxCollider:
+--- !u!61 &61074329011421270
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009459699526272}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65439724990315800
-BoxCollider:
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &61314502566792754
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1576335559887596}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 1.0000002}
+  m_EdgeRadius: 0
 --- !u!68 &68008870287650380
 EdgeCollider2D:
   m_ObjectHideFlags: 1
