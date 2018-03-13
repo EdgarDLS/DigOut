@@ -9,6 +9,9 @@ public class KillerBall : MonoBehaviour
     public float thrust = 500;
 
     public float speedMultiplier = 1;
+    public float speedAugmentor = 0.1f;
+
+    public float maxSpeed;
 
     private Rigidbody2D myRigidbody2D;
 
@@ -46,11 +49,10 @@ public class KillerBall : MonoBehaviour
             collision.transform.GetComponent<Player>().Die();
         }
 
-        if ((myRigidbody2D.velocity.x < 18 && myRigidbody2D.velocity.x > -18) && ( myRigidbody2D.velocity.y < 18 && myRigidbody2D.velocity.y > -18))
+        if ((myRigidbody2D.velocity.x < maxSpeed && myRigidbody2D.velocity.x > -maxSpeed) && ( myRigidbody2D.velocity.y < maxSpeed && myRigidbody2D.velocity.y > -maxSpeed))
         {
-            speedMultiplier += 0.1f;
+            speedMultiplier += speedAugmentor;
             myRigidbody2D.AddForce(myRigidbody2D.velocity * speedMultiplier);
-            Debug.Log(myRigidbody2D.velocity);
         }
     }
 }

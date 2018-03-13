@@ -47,40 +47,28 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Inputs
-        if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space)) && !drilling)
-        {
-            myRigidbody2D.velocity = new Vector2(0, 0);
-
-            drillZone.SetActive(true);
-            drillZone.transform.localPosition = new Vector2(0, -0.45f);
-
-            movement = false;
-            drilling = true;
-        }
-        
-        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && drilling && !drillingTime)
+       if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 180f);
             drillZone.transform.localPosition = new Vector2(-0.45f, -0);
         }
-        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && drilling && !drillingTime)
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 0f);
             drillZone.transform.localPosition = new Vector2(0.45f, -0);
         }
-        else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && drilling && !drillingTime)
+        else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 90f);
             drillZone.transform.localPosition = new Vector2(0, 0.45f);
         }
-        else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && drilling && !drillingTime)
+        else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, -90f);
             drillZone.transform.localPosition = new Vector2(0, -0.45f);
         }
 
-        else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space)) && drilling)
+        else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space)))
         {
             drill.SetActive(true);
 
@@ -88,13 +76,9 @@ public class Player : MonoBehaviour
             moveTimeTotal = (drill.transform.position - drillZone.transform.position).magnitude / drillingSpeed;
 
             drillingTime = true;
-        }
 
-        else if (Input.GetKeyDown(KeyCode.Escape) && !drillingTime)
-        {
-            drillZone.SetActive(false);
-            movement = true;
-            drilling = false;
+            myRigidbody2D.velocity = new Vector2(0, 0);
+            movement = false;
         }
 
         // Drill Movement
@@ -110,10 +94,8 @@ public class Player : MonoBehaviour
             {
                 drill.transform.localPosition = new Vector2(0, 0);
                 drill.SetActive(false);
-                drillZone.SetActive(false);
 
                 movement = true;
-                drilling = false;
                 drillingTime = false;
             }
         }
