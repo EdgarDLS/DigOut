@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public static LevelGenerator levelGenerator;
+
     public Transform mapBeginingPosition;
     
     public GameObject player;
@@ -14,16 +16,55 @@ public class LevelGenerator : MonoBehaviour
     public Color levelColor;
     public float terrainSeparation;
 
-    public string[] level1 =
+    [HideInInspector]
+    public bool playerDead = false;
+
+    public string[] level =
     {
         "WWWWW",
         "WWWWW"
     };
 
-	void Start ()
+    private void Awake()
+    {
+        if (levelGenerator != null)
+            GameObject.Destroy(levelGenerator);
+        else
+            levelGenerator = this;
+    }
+
+    void Start ()
     {
         GenerateLevel();
 	}
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && playerDead)
+        {
+            ResetPlayer();
+        }
+    }
+
+    private void ResetPlayer()
+    {
+        for (int i = 0; i < level.Length; i++)
+        {
+            for (int j = 0; j < level[i].Length; j++)
+            {
+                if (level[i][j] == 'P')
+                {
+                    GameObject newPlayer = Instantiate(player, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                    newPlayer.name = "Player";
+                    newPlayer.transform.parent = transform;
+                }
+            }
+        }
+
+        KillerBall.killerBall.ResetBall();
+
+        playerDead = false;
+    }
 
     public void GenerateLevel()
     {
@@ -42,12 +83,12 @@ public class LevelGenerator : MonoBehaviour
         Transform wallHolder = new GameObject("Walls").transform;
         wallHolder.parent = levelHolder;
 
-        for (int i = 0; i < level1.Length; i++)
+        for (int i = 0; i < level.Length; i++)
         {
-            for (int j = 0; j < level1[i].Length; j++)
+            for (int j = 0; j < level[i].Length; j++)
             {
                 // P - Player | T - Terrain | W- Wall |O - Obstacles
-                switch (level1[i][j])
+                switch (level[i][j])
                 {
                     case 'P':
                         GameObject newPlayer = Instantiate(player, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
@@ -63,9 +104,7 @@ public class LevelGenerator : MonoBehaviour
                     case 'W':
                         GameObject newWall = Instantiate(wall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newWall.transform.parent = wallHolder;
-                        break;
-
-                        
+                        break; 
                 }
             }
         }

@@ -124,5 +124,7 @@ public class Player : MonoBehaviour
         Destroy(this.gameObject);
 
         Destroy(Instantiate(deathEffect.gameObject, transform.position, transform.rotation) as GameObject, 2.5f);
+
+        LevelGenerator.levelGenerator.playerDead = true;
     }
 }
