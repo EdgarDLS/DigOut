@@ -137,7 +137,7 @@ public class LevelGenerator : MonoBehaviour
                         newDoor.transform.parent = wallHolder;
                         break;
                     case 'E':
-                        GameObject newEnemy = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
+                        GameObject newEnemy = Instantiate(pinkSlime, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newEnemy.transform.parent = enemyHolder;
                         break;
                 }
