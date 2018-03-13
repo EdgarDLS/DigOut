@@ -53,7 +53,6 @@ public class KillerBall : MonoBehaviour
         {
             speedMultiplier += speedAugmentor;
             myRigidbody2D.AddForce(myRigidbody2D.velocity * speedMultiplier);
-            Debug.Log(myRigidbody2D.velocity);
         }
     }
 }
