@@ -22,12 +22,18 @@ public class KillerBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.transform.tag.Equals("Player"))
+        {
+            myRigidbody2D.velocity = new Vector2(0, 0);
+
+            collision.transform.GetComponent<Player>().Die();
+        }
+
         if ((myRigidbody2D.velocity.x < 18 && myRigidbody2D.velocity.x > -18) && ( myRigidbody2D.velocity.y < 18 && myRigidbody2D.velocity.y > -18))
         {
             speedMultiplier += 0.1f;
             myRigidbody2D.AddForce(myRigidbody2D.velocity * speedMultiplier);
             Debug.Log(myRigidbody2D.velocity);
-
         }
     }
 }
