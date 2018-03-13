@@ -8,6 +8,7 @@ public class RetardIa : MonoBehaviour {
     int direction;
 	// Use this for initialization
 	void Start () {
+        this.transform.rotation = new Quaternion(0,0, 0, 0);
         direction = (int)Random.Range(0, 3);
         switch (direction){
             case 0:
@@ -35,7 +36,7 @@ public class RetardIa : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        this.transform.position += speed * -velocity * 0.1f;
+        this.transform.position += speed * -velocity * 0.9f;
         direction = (int)Random.Range(0, 3.999999f);
         switch (direction)
         {
