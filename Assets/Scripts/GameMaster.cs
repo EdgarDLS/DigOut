@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster GM;
 
-    public float numberKeys = 3;
-    public float keysPicked = 0;
+    public int levelToLoad;
+
+    private float numberKeys = 3;
+    private float keysPicked = 0;
 
     private void Start()
     {
@@ -29,6 +30,6 @@ public class GameMaster : MonoBehaviour
 
     public void LoadNextLevel()
     {
-
+        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
     }
 }

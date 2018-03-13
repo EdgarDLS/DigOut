@@ -14,6 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject rock;
     public GameObject box;
     public GameObject door;
+    public GameObject pinkSlime;
 
     [Space]
     public Color levelColor;
@@ -92,6 +93,9 @@ public class LevelGenerator : MonoBehaviour
         Transform obstacleHolder = new GameObject("Obstacles").transform;
         obstacleHolder.parent = levelHolder;
 
+        Transform enemyHolder = new GameObject("Enemies").transform;
+        enemyHolder.parent = levelHolder;
+
         for (int i = 0; i < level.Length; i++)
         {
             for (int j = 0; j < level[i].Length; j++)
@@ -117,20 +121,24 @@ public class LevelGenerator : MonoBehaviour
                     case 'R':
                         GameObject newTerrainRock = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainRock.transform.parent = terrainHolder;
-                        GameObject newRock = Instantiate(rock, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -0.6f)), mapBeginingPosition.rotation) as GameObject;
+                        GameObject newRock = Instantiate(rock, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newRock.transform.parent = wallHolder;
                         break;
                     case 'B':
                         GameObject newTerrainBox = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainBox.transform.parent = terrainHolder;
-                        GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -0.6f)), mapBeginingPosition.rotation) as GameObject;
+                        GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newBox.transform.parent = wallHolder;
                         break;
                     case 'D':
                         GameObject newTerrainDoor = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainDoor.transform.parent = terrainHolder;
-                        GameObject newDoor = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -0.6f)), mapBeginingPosition.rotation) as GameObject;
+                        GameObject newDoor = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newDoor.transform.parent = wallHolder;
+                        break;
+                    case 'E':
+                        GameObject newEnemy = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
+                        newEnemy.transform.parent = enemyHolder;
                         break;
                 }
             }
