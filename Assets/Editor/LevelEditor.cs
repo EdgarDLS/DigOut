@@ -8,10 +8,19 @@ public class LevelEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-
         LevelGenerator level = target as LevelGenerator;
 
-        level.GenerateLevel();
+        // True if the value is being updated in the inspector
+        
+        if (DrawDefaultInspector ())
+        {
+            level.GenerateLevel();
+        }
+        
+
+        if (GUILayout.Button("Generate Level"))
+        {
+            level.GenerateLevel();
+        }
     }
 }

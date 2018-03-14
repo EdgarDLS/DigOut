@@ -229,48 +229,12 @@ public class LevelGenerator : MonoBehaviour
                 {
                     if (instantion1 != null)
                     {
-                        foreach (Transform child in instantion1.transform)
-                        {
-                            if (child.tag.Equals("Block"))
-                            {
-                                SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
-                                Debug.Log(child.name);
-
-                                if (sprite != null)
-                                {
-                                    sprite.color = levelColor;
-                                    Debug.Log(child.name);
-                                }
-
-                                else
-                                {
-                                    FindChildren(child);
-                                }
-                            }
-                        }
+                        FindChildren(instantion1.transform);
                     }
 
                     if (instantion2 != null)
                     {
-                        foreach (Transform child in instantion2.transform)
-                        {
-                            if (child.tag.Equals("Block"))
-                            {
-                                SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
-                                Debug.Log(child.name);
-
-                                if (sprite != null)
-                                {
-                                    sprite.color = levelColor;
-                                    Debug.Log(child.name);
-                                }
-
-                                else
-                                {
-                                    FindChildren(child);
-                                }
-                            }
-                        }
+                        FindChildren(instantion2.transform);
                     }
                 }
             }
