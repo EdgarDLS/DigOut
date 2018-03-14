@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50185426657532414}
   - component: {fileID: 61142677786112026}
   m_Layer: 13
-  m_Name: pinkSlime
+  m_Name: PinkSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

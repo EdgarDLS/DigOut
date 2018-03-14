@@ -17,7 +17,11 @@ public class LevelGenerator : MonoBehaviour
     public GameObject hWall;
     public GameObject rock;
     public GameObject box;
+    public GameObject box1;
+    public GameObject box2;
+    public GameObject box3;
     public GameObject door;
+    public GameObject key;
     public GameObject pinkSlime;
 
     [Space]
@@ -140,19 +144,35 @@ public class LevelGenerator : MonoBehaviour
                         GameObject newTerrainRock = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainRock.transform.parent = terrainHolder;
                         GameObject newRock = Instantiate(rock, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
-                        newRock.transform.parent = wallHolder;
+                        newRock.transform.parent = obstacleHolder;
                         break;
                     case 'B':
-                        GameObject newTerrainBox = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
-                        newTerrainBox.transform.parent = terrainHolder;
-                        GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
-                        newBox.transform.parent = wallHolder;
+                        GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newBox.transform.parent = obstacleHolder;
+                        break;
+                    case 'N':
+                        GameObject newBox1 = Instantiate(box1, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newBox1.transform.parent = obstacleHolder;
+                        break;
+                    case 'M':
+                        GameObject newBox2 = Instantiate(box2, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newBox2.transform.parent = obstacleHolder;
+                        break;
+                    case 'J':
+                        GameObject newBox3 = Instantiate(box3, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newBox3.transform.parent = obstacleHolder;
                         break;
                     case 'D':
                         GameObject newTerrainDoor = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainDoor.transform.parent = terrainHolder;
                         GameObject newDoor = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newDoor.transform.parent = wallHolder;
+                        break;
+                    case 'K':
+                        GameObject newTerrainKey = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newTerrainKey.transform.parent = terrainHolder;
+                        GameObject newKey = Instantiate(key, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        newKey.transform.parent = wallHolder;
                         break;
                     case 'E':
                         GameObject newHollowTerrainEnemy = Instantiate(hollowTerrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
