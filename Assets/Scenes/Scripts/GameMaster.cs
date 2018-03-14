@@ -27,7 +27,7 @@ public class GameMaster : MonoBehaviour
         else
             GM = this;
 
-        endStats = GameObject.Find("EndStats");
+        endStats = GameObject.Find("_EndStats");
         keyText = GameObject.Find("KeyText").GetComponent<Text>();
         youDiedText = GameObject.Find("YouDiedText").GetComponent<Text>();
 
@@ -55,6 +55,11 @@ public class GameMaster : MonoBehaviour
         {
             LoadNextLevel(3);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadStats();
+        }
     }
 
     public void AddKey()
@@ -74,7 +79,7 @@ public class GameMaster : MonoBehaviour
     {
         endStats.SetActive(true);
 
-        keyText.text = "This level costed you " + deathsCounter.ToString() + " lives";
+        youDiedText.text = "This level costed you " + deathsCounter.ToString() + " lives";
 
         levelCompleted = true;
     }

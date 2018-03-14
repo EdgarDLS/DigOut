@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class KillerBall : MonoBehaviour
 {
-    public static KillerBall killerBall;
-
     public float thrust = 500;
 
     public float speedMultiplier = 1;
@@ -17,25 +15,22 @@ public class KillerBall : MonoBehaviour
 
     public Vector2 ballInitialForce;
 
+    private Vector3 initialPosition;
 
-    private void Awake()
-    {
-        if (killerBall != null)
-            GameObject.Destroy(killerBall);
-        else
-            killerBall = this;
-    }
 
     void Start ()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        initialPosition = this.transform.position;
 
         myRigidbody2D.AddForce(ballInitialForce * speedMultiplier);
+
+
     }
 
     public void ResetBall()
     {
-        transform.position = new Vector3(1.6f, -3.1f, -0.38f);
+        transform.position = initialPosition;
         myRigidbody2D.AddForce(ballInitialForce * speedMultiplier);
     }
 

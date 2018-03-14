@@ -8,6 +8,10 @@ public class LevelGenerator : MonoBehaviour
 
     public Transform mapBeginingPosition;
 
+    [Space]
+    public GameObject[] killerBalls;
+
+    [Space]
     public GameObject hollowTerrain;
     public GameObject player;
     public GameObject terrain;
@@ -76,7 +80,10 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        KillerBall.killerBall.ResetBall();
+        for (int i = 0; i < killerBalls.Length; i++)
+        {
+            killerBalls[i].GetComponent<KillerBall>().ResetBall();
+        }
 
         playerDead = false;
     }
