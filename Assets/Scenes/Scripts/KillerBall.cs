@@ -17,7 +17,8 @@ public class KillerBall : MonoBehaviour
 
     private Vector3 initialPosition;
 
-
+    public bool speedUp = false;
+    
     void Start ()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -33,7 +34,14 @@ public class KillerBall : MonoBehaviour
         transform.position = initialPosition;
         myRigidbody2D.AddForce(ballInitialForce * speedMultiplier);
     }
-
+    private void Update()
+    {
+        if (speedUp)
+        {
+            speedMultiplier -= speedAugmentor * 2;
+            speedUp = false;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag.Equals("Player"))

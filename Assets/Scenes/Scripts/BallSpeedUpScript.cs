@@ -8,7 +8,8 @@ public class BallSpeedUpScript : MonoBehaviour {
     {
         if (collision.transform.tag.Equals("Player"))
         {
-            Drill.drill.makeBig = true;
+            for (int n = 0; n < LevelGenerator.levelGenerator.killerBalls.Length; n++)
+                LevelGenerator.levelGenerator.killerBalls[n].transform.GetComponent<KillerBall>().speedUp = true;
             Destroy(this.gameObject);
         }
 
