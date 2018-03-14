@@ -25,22 +25,31 @@ public class Drill : MonoBehaviour
         originalScale = this.transform.localScale;
     }
 
+    private void Update()
+    {
+       
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (makeBig)
-        {
-            this.transform.localScale = originalScale *scale;
-            makeBig = false;
-        }
         if (makeSmall)
         {
-            this.transform.localScale = originalScale * scale;
+            this.transform.localScale = originalScale;
             makeSmall = false;
         }
+        if (makeBig)
+        {
+            this.transform.localScale = originalScale * scale;
+            makeBig = false;
+            makeSmall = true;
+        }
+        
+
         if (collision.transform.tag.Equals("Block"))
         {
             Destroy(collision.gameObject);
         }
+      
+
 
     }
     

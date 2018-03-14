@@ -79,6 +79,8 @@ public class Player : MonoBehaviour
 
             myRigidbody2D.velocity = new Vector2(0, 0);
             movement = false;
+
+            //Drill.drill.makeSmall = true;
         }
 
         // Drill Movement

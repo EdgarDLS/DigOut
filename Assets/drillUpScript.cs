@@ -9,6 +9,7 @@ public class drillUpScript : MonoBehaviour {
         if (collision.transform.tag.Equals("Player"))
         {
             Drill.drill.makeBig = true;
+            Destroy(this.gameObject);
         }
 
     }
