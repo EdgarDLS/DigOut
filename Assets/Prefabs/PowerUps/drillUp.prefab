@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4954760652569334}
   - component: {fileID: 212606123420276790}
+  - component: {fileID: 61108494269248844}
+  - component: {fileID: 114713619789401356}
   m_Layer: 0
   m_Name: drillUp
   m_TagString: Untagged
@@ -34,12 +36,48 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643776156549996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.07, y: -5.21, z: 0}
+  m_LocalPosition: {x: -2.59, y: -0.16, z: 0}
   m_LocalScale: {x: 1.5906422, y: 1.5906416, z: 1.5906416}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61108494269248844
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643776156549996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.24}
+    newSize: {x: 0.35, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.24}
+  m_EdgeRadius: 0
+--- !u!114 &114713619789401356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643776156549996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea74498d9ca85614f8d1ca4483b374d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212606123420276790
 SpriteRenderer:
   m_ObjectHideFlags: 1
