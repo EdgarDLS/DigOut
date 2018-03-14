@@ -5,8 +5,8 @@ using UnityEngine;
 public class KillerBall : MonoBehaviour
 {
     public float thrust = 500;
-
-    public float speedMultiplier = 1;
+    public float velocityDecrease;                //Esta variable hace que cuando se coje el power up la velocidad sea igual a este porcentaje
+    public float speedMultiplier = 1; 
     public float speedAugmentor = 0.1f;
 
     public float maxSpeed;
@@ -38,8 +38,11 @@ public class KillerBall : MonoBehaviour
     {
         if (speedUp)
         {
-            speedMultiplier -= speedAugmentor * 2;
+            Debug.Log(myRigidbody2D.velocity);
+            speedMultiplier = 1;
+            myRigidbody2D.velocity *= velocityDecrease/100 ;
             speedUp = false;
+            Debug.Log(myRigidbody2D.velocity);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
