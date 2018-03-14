@@ -29,6 +29,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject pinkSlime;
 
     [Space]
+    public bool paintLevel = false;
     public Color levelColor;
     public float terrainSeparation;
 
@@ -224,38 +225,76 @@ public class LevelGenerator : MonoBehaviour
                         break;
                 }
 
-                if (instantion1 != null)
+                if (paintLevel)
                 {
-                    foreach (Transform child in instantion1.transform)
+                    if (instantion1 != null)
                     {
-                        if (child.tag.Equals("Block"))
+                        foreach (Transform child in instantion1.transform)
                         {
-                            SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
-                            Debug.Log(child.name);
-
-                            if (sprite != null)
+                            if (child.tag.Equals("Block"))
                             {
-                                sprite.color = levelColor;
+                                SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
                                 Debug.Log(child.name);
+
+                                if (sprite != null)
+                                {
+                                    sprite.color = levelColor;
+                                    Debug.Log(child.name);
+                                }
+
+                                else
+                                {
+                                    FindChildren(child);
+                                }
+                            }
+                        }
+                    }
+
+                    if (instantion2 != null)
+                    {
+                        foreach (Transform child in instantion2.transform)
+                        {
+                            if (child.tag.Equals("Block"))
+                            {
+                                SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
+                                Debug.Log(child.name);
+
+                                if (sprite != null)
+                                {
+                                    sprite.color = levelColor;
+                                    Debug.Log(child.name);
+                                }
+
+                                else
+                                {
+                                    FindChildren(child);
+                                }
                             }
                         }
                     }
                 }
+            }
+        }      
+    }
 
-                if (instantion2 != null)
+    private void FindChildren(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.tag.Equals("Block"))
+            {
+                SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
+                Debug.Log(child.name);
+
+                if (sprite != null)
                 {
-                    foreach (Transform child in instantion2.transform)
-                    {
-                        if (child.tag.Equals("Block"))
-                        {
-                            SpriteRenderer sprite = child.transform.GetComponent<SpriteRenderer>();
+                    sprite.color = levelColor;
+                    Debug.Log(child.name);
+                }
 
-                            if (sprite != null)
-                            {
-                                sprite.color = levelColor;
-                            }
-                        }
-                    }
+                else
+                {
+                    FindChildren(child);
                 }
             }
         }
