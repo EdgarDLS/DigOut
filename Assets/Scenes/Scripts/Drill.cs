@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Drill : MonoBehaviour
 {
+    public static Drill drill;
+
     public bool makeBig = false;
     public bool makeSmall = false;
 
     Vector3 originalScale;
     public float scale;
+
+    private void Awake()
+    {
+        if (drill != null)
+            GameObject.Destroy(drill);
+        else
+            drill = this;
+    }
+
     private void Start()
     {
         originalScale = this.transform.localScale;
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (makeBig)
