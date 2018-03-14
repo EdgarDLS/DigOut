@@ -33,3 +33,6 @@ sysinfo.txt
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
+Assets/Scenes/Scripts/GameMaster\.cs
+
+Assets/Scenes/Scripts/LevelGenerator\.cs
