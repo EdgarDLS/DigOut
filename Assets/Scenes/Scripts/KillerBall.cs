@@ -9,6 +9,7 @@ public class KillerBall : MonoBehaviour
     public float speedMultiplier = 1; 
     public float speedAugmentor = 0.1f;
 
+
     public float maxSpeed;
 
     private Rigidbody2D myRigidbody2D;
@@ -18,14 +19,16 @@ public class KillerBall : MonoBehaviour
     private Vector3 initialPosition;
 
     public bool speedUp = false;
-    
+    public bool sizeUp = false;
+    Vector3 originalScale;
+    public float scale;
+
     void Start ()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         initialPosition = this.transform.position;
-
+        originalScale = this.transform.localScale;
         myRigidbody2D.AddForce(ballInitialForce * speedMultiplier);
-
 
     }
 
@@ -38,11 +41,14 @@ public class KillerBall : MonoBehaviour
     {
         if (speedUp)
         {
-            Debug.Log(myRigidbody2D.velocity);
             speedMultiplier = 1;
             myRigidbody2D.velocity *= velocityDecrease/100 ;
             speedUp = false;
-            Debug.Log(myRigidbody2D.velocity);
+        }
+        if (sizeUp)
+        {
+            this.transform.localScale = originalScale * scale;
+            sizeUp = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

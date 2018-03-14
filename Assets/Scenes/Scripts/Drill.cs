@@ -38,7 +38,6 @@ public class Drill : MonoBehaviour
             makeBig = false;
             makeSmall = true;
             timer = 0;
-            Debug.Log("adios");
         }
         
 
@@ -50,7 +49,6 @@ public class Drill : MonoBehaviour
         {
             this.transform.localScale = originalScale;
             makeSmall = false;
-            Debug.Log("hola");
         }
 
 
