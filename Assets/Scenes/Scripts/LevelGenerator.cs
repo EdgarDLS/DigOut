@@ -115,6 +115,10 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < level[i].Length; j++)
             {
+                // Codigo super guarro necesario para pintar color
+                GameObject instantion1 = null;
+                GameObject instantion2 = null;
+
                 // P - Player | T - Terrain | W- Wall |O - Obstacles
                 switch (level[i][j])
                 {
@@ -124,69 +128,134 @@ public class LevelGenerator : MonoBehaviour
                         GameObject newPlayer = Instantiate(player, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newPlayer.name = "Player";
                         newPlayer.transform.parent = levelHolder;
+
+                        instantion1 = newHollowTerrain;
+                        instantion2 = newPlayer;
                         break;
                     case 'T':
                         GameObject newTerrain = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrain.transform.parent = terrainHolder;
-                        //newTerrain.GetComponent<SpriteRenderer>().color = levelColor;
-                        //newTerrain.GetComponent<Material>().color = levelColor;
+
+                        instantion1 = newTerrain;
                         break;
                     case 'W':
                         GameObject newWall = Instantiate(wall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newWall.transform.parent = wallHolder;
+
+                        instantion1 = newWall;
                         break;
                     case 'V':
                         GameObject newVWall = Instantiate(vWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newVWall.transform.parent = wallHolder;
+
+                        instantion1 = newVWall;
                         break;
                     case 'H':
                         GameObject newHWall = Instantiate(hWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newHWall.transform.parent = wallHolder;
+
+                        instantion1 = newHWall;
                         break;
                     case 'X':
                         GameObject newXWall = Instantiate(xWall, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newXWall.transform.parent = wallHolder;
+
+                        instantion1 = newXWall;
                         break;
                     case 'R':
                         GameObject newTerrainRock = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainRock.transform.parent = terrainHolder;
                         GameObject newRock = Instantiate(rock, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newRock.transform.parent = obstacleHolder;
+
+                        instantion1 = newTerrainRock;
+                        instantion2 = newRock;
                         break;
                     case 'B':
                         GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newBox.transform.parent = obstacleHolder;
+
+                        instantion1 = newBox;
                         break;
                     case 'N':
                         GameObject newBox1 = Instantiate(box1, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newBox1.transform.parent = obstacleHolder;
+
+                        instantion1 = newBox1;
                         break;
                     case 'M':
                         GameObject newBox2 = Instantiate(box2, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newBox2.transform.parent = obstacleHolder;
+
+                        instantion1 = newBox2;
                         break;
                     case 'J':
                         GameObject newBox3 = Instantiate(box3, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newBox3.transform.parent = obstacleHolder;
+
+                        instantion1 = newBox3;
                         break;
                     case 'D':
                         GameObject newTerrainDoor = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainDoor.transform.parent = terrainHolder;
                         GameObject newDoor = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newDoor.transform.parent = wallHolder;
+
+                        instantion1 = newTerrainDoor;
+                        instantion2 = newDoor;
                         break;
                     case 'K':
                         GameObject newTerrainKey = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainKey.transform.parent = terrainHolder;
                         GameObject newKey = Instantiate(key, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
                         newKey.transform.parent = wallHolder;
+
+                        instantion1 = newTerrainKey;
+                        instantion2 = newKey;
                         break;
                     case 'E':
                         GameObject newHollowTerrainEnemy = Instantiate(hollowTerrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newHollowTerrainEnemy.transform.parent = terrainHolder;
                         GameObject newEnemy = Instantiate(pinkSlime, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, -2f)), mapBeginingPosition.rotation) as GameObject;
                         newEnemy.transform.parent = enemyHolder;
+
+                        instantion1 = newHollowTerrainEnemy;
+                        instantion2 = newEnemy;
                         break;
+                }
+
+                if (instantion1 != null)
+                {
+                    foreach (Transform child in instantion1.transform)
+                    {
+                        if (child.tag.Equals("Block"))
+                        {
+                            SpriteRenderer sprite = child.GetComponent<SpriteRenderer>();
+                            Debug.Log(child.name);
+
+                            if (sprite != null)
+                            {
+                                sprite.color = levelColor;
+                                Debug.Log(child.name);
+                            }
+                        }
+                    }
+                }
+
+                if (instantion2 != null)
+                {
+                    foreach (Transform child in instantion2.transform)
+                    {
+                        if (child.tag.Equals("Block"))
+                        {
+                            SpriteRenderer sprite = child.transform.GetComponent<SpriteRenderer>();
+
+                            if (sprite != null)
+                            {
+                                sprite.color = levelColor;
+                            }
+                        }
+                    }
                 }
             }
         }
