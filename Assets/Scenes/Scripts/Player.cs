@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject drillZone;
     public GameObject drill;
     public ParticleSystem deathEffect;
+    public bool drillUp = false;
 
     [Space]
     public float speed = 100;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
 
         myRigidbody2D.freezeRotation = true;
         myRigidbody2D.gravityScale = 0;
+        
 	}
 
     void FixedUpdate ()
@@ -50,6 +52,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (drillUp)
+        {
+            drillZone.transform.localScale *= 6;
+            drillUp = false;
+        }
+
        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 180f);
@@ -84,6 +92,10 @@ public class Player : MonoBehaviour
             movement = false;
 
             //Drill.drill.makeSmall = true;
+            if (drillZone.transform.localScale.x > 1)
+            {
+                drillZone.transform.localScale /= 6;
+            }
         }
 
         // Drill Movement
@@ -111,11 +123,16 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+
         Destroy(this.gameObject);
         Destroy(Instantiate(deathEffect.gameObject, transform.position, transform.rotation) as GameObject, 2.5f);
 
         GameMaster.GM.deathsCounter++;
 
+        CameraShake.CS.shakeDuration = 1;
+
         LevelGenerator.levelGenerator.playerDead = true;
+
+
     }
 }

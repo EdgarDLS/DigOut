@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114091343201239144}
   - component: {fileID: 58735730092480732}
   - component: {fileID: 61984350738728118}
+  - component: {fileID: 114211679290034236}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -277,6 +278,22 @@ MonoBehaviour:
     type: 2}
   speed: 100
   drillingSpeed: 1.1
+--- !u!114 &114211679290034236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1804631611703246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1447efbcbe35df84395bc62b3b2308ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114428930022009292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   makeBig: 0
   makeSmall: 0
+  drillZone: {fileID: 1724300249933560}
   scale: 6
 --- !u!212 &212176206902325458
 SpriteRenderer:
