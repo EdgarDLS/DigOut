@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-
+ 
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     private float moveTimeTotal = 0;
 
     private Rigidbody2D myRigidbody2D;
+    
+    //Cosas de Albert ;)
+   
 
     void Start ()
     {
@@ -101,6 +104,9 @@ public class Player : MonoBehaviour
                 drillingTime = false;
             }
         }
+
+      
+       
     }
 
     public void Die()
