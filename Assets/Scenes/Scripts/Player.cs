@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Space]
     public float speed = 100;
     public float drillingSpeed = 0.2f;
+    public float drillDistance = 0.55f;
 
     private bool drilling = false;
     private bool drillingTime = false;
@@ -61,22 +62,22 @@ public class Player : MonoBehaviour
        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 180f);
-            drillZone.transform.localPosition = new Vector2(-0.45f, -0);
+            drillZone.transform.localPosition = new Vector2(-drillDistance, -0);
         }
         else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 0f);
-            drillZone.transform.localPosition = new Vector2(0.45f, -0);
+            drillZone.transform.localPosition = new Vector2(drillDistance, -0);
         }
         else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, 90f);
-            drillZone.transform.localPosition = new Vector2(0, 0.45f);
+            drillZone.transform.localPosition = new Vector2(0, drillDistance);
         }
         else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))  && !drillingTime)
         {
             drill.transform.eulerAngles = new Vector3(0, 0, -90f);
-            drillZone.transform.localPosition = new Vector2(0, -0.45f);
+            drillZone.transform.localPosition = new Vector2(0, -drillDistance);
         }
 
         else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space)))

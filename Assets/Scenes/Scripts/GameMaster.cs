@@ -10,7 +10,7 @@ public class GameMaster : MonoBehaviour
 
     private bool levelCompleted = false;
 
-    private float numberKeys = 3;
+    public float numberKeys = 3;
     private float keysPicked = 0;
 
     [HideInInspector]
@@ -45,15 +45,15 @@ public class GameMaster : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
+            LoadNextLevel(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
             LoadNextLevel(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             LoadNextLevel(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            LoadNextLevel(3);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
