@@ -27,6 +27,10 @@ public class LevelGenerator : MonoBehaviour
     public GameObject door;
     public GameObject key;
     public GameObject pinkSlime;
+    public GameObject powerUp1;
+    public GameObject powerUp2;
+    public GameObject powerUp3;
+    public GameObject powerUp4;
 
     [Space]
     public bool paintLevel = false;
@@ -118,7 +122,6 @@ public class LevelGenerator : MonoBehaviour
             {
                 // Codigo super guarro necesario para pintar color
                 GameObject instantion1 = null;
-                GameObject instantion2 = null;
 
                 // P - Player | T - Terrain | W- Wall |O - Obstacles
                 switch (level[i][j])
@@ -131,7 +134,6 @@ public class LevelGenerator : MonoBehaviour
                         newPlayer.transform.parent = levelHolder;
 
                         instantion1 = newHollowTerrain;
-                        instantion2 = newPlayer;
                         break;
                     case 'T':
                         GameObject newTerrain = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
@@ -170,7 +172,6 @@ public class LevelGenerator : MonoBehaviour
                         newRock.transform.parent = obstacleHolder;
 
                         instantion1 = newTerrainRock;
-                        instantion2 = newRock;
                         break;
                     case 'B':
                         GameObject newBox = Instantiate(box, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
@@ -203,7 +204,6 @@ public class LevelGenerator : MonoBehaviour
                         newDoor.transform.parent = wallHolder;
 
                         instantion1 = newTerrainDoor;
-                        instantion2 = newDoor;
                         break;
                     case 'K':
                         GameObject newTerrainKey = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
@@ -212,7 +212,6 @@ public class LevelGenerator : MonoBehaviour
                         newKey.transform.parent = wallHolder;
 
                         instantion1 = newTerrainKey;
-                        instantion2 = newKey;
                         break;
                     case 'E':
                         GameObject newHollowTerrainEnemy = Instantiate(hollowTerrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
@@ -221,7 +220,38 @@ public class LevelGenerator : MonoBehaviour
                         newEnemy.transform.parent = enemyHolder;
 
                         instantion1 = newHollowTerrainEnemy;
-                        instantion2 = newEnemy;
+                        break;
+                    case '1':
+                        GameObject newTerrainPowerUp1 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newTerrainPowerUp1.transform.parent = terrainHolder;
+                        GameObject powerUp1 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        powerUp1.transform.parent = levelHolder;
+
+                        instantion1 = newTerrainPowerUp1;
+                        break;
+                    case '2':
+                        GameObject newTerrainPowerUp2 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newTerrainPowerUp2.transform.parent = terrainHolder;
+                        GameObject powerUp2 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        powerUp2.transform.parent = levelHolder;
+
+                        instantion1 = newTerrainPowerUp2;
+                        break;
+                    case '3':
+                        GameObject newTerrainPowerUp3 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newTerrainPowerUp3.transform.parent = terrainHolder;
+                        GameObject powerUp3 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        powerUp3.transform.parent = levelHolder;
+
+                        instantion1 = newTerrainPowerUp3;
+                        break;
+                    case '4':
+                        GameObject newTerrainPowerUp4 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
+                        newTerrainPowerUp4.transform.parent = terrainHolder;
+                        GameObject powerUp4 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        powerUp4.transform.parent = levelHolder;
+
+                        instantion1 = newTerrainPowerUp4;
                         break;
                 }
 
@@ -230,11 +260,6 @@ public class LevelGenerator : MonoBehaviour
                     if (instantion1 != null)
                     {
                         FindChildren(instantion1.transform);
-                    }
-
-                    if (instantion2 != null)
-                    {
-                        FindChildren(instantion2.transform);
                     }
                 }
             }
