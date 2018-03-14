@@ -8,7 +8,7 @@ public class Drill : MonoBehaviour
 
     public bool makeBig = false;
     public bool makeSmall = false;
-
+    float timer = 0;
     Vector3 originalScale;
     public float scale;
 
@@ -27,20 +27,18 @@ public class Drill : MonoBehaviour
 
     private void Update()
     {
-       
+        timer += Time.deltaTime;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (makeSmall)
-        {
-            this.transform.localScale = originalScale;
-            makeSmall = false;
-        }
+       
         if (makeBig)
         {
             this.transform.localScale = originalScale * scale;
             makeBig = false;
             makeSmall = true;
+            timer = 0;
+            Debug.Log("adios");
         }
         
 
@@ -48,7 +46,12 @@ public class Drill : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-      
+        if (makeSmall&&timer>0.3f)
+        {
+            this.transform.localScale = originalScale;
+            makeSmall = false;
+            Debug.Log("hola");
+        }
 
 
     }
