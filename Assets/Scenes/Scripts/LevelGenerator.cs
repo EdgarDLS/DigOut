@@ -224,32 +224,32 @@ public class LevelGenerator : MonoBehaviour
                     case '1':
                         GameObject newTerrainPowerUp1 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainPowerUp1.transform.parent = terrainHolder;
-                        GameObject powerUp1 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
-                        powerUp1.transform.parent = levelHolder;
+                        GameObject newPowerUp1 = Instantiate(powerUp1, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        newPowerUp1.transform.parent = levelHolder;
 
                         instantion1 = newTerrainPowerUp1;
                         break;
                     case '2':
                         GameObject newTerrainPowerUp2 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainPowerUp2.transform.parent = terrainHolder;
-                        GameObject powerUp2 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
-                        powerUp2.transform.parent = levelHolder;
+                        GameObject newPowerUp2 = Instantiate(powerUp2, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        newPowerUp2.transform.parent = levelHolder;
 
                         instantion1 = newTerrainPowerUp2;
                         break;
                     case '3':
                         GameObject newTerrainPowerUp3 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainPowerUp3.transform.parent = terrainHolder;
-                        GameObject powerUp3 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
-                        powerUp3.transform.parent = levelHolder;
+                        GameObject newPowerUp3 = Instantiate(powerUp3, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        newPowerUp3.transform.parent = levelHolder;
 
                         instantion1 = newTerrainPowerUp3;
                         break;
                     case '4':
                         GameObject newTerrainPowerUp4 = Instantiate(terrain, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 0)), mapBeginingPosition.rotation) as GameObject;
                         newTerrainPowerUp4.transform.parent = terrainHolder;
-                        GameObject powerUp4 = Instantiate(door, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
-                        powerUp4.transform.parent = levelHolder;
+                        GameObject newPowerUp4 = Instantiate(powerUp4, mapBeginingPosition.position + (new Vector3(j * terrainSeparation, -i * terrainSeparation, 2f)), mapBeginingPosition.rotation) as GameObject;
+                        newPowerUp4.transform.parent = levelHolder;
 
                         instantion1 = newTerrainPowerUp4;
                         break;
