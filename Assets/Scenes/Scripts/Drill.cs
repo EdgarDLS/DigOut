@@ -39,18 +39,18 @@ public class Drill : MonoBehaviour
             makeSmall = true;
             timer = 0;
         }
-        
 
-        if (collision.transform.tag.Equals("Block"))
-        {
-            Destroy(collision.gameObject);
-        }
-        if (makeSmall&&timer>0.3f)
+        if (makeSmall && timer > 0.1f)
         {
             this.transform.localScale = originalScale;
             makeSmall = false;
         }
 
+        if (collision.transform.tag.Equals("Block"))
+        {
+            Destroy(collision.gameObject);
+        }
+    
 
     }
     

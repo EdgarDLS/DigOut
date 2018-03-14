@@ -227,7 +227,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 500
+  velocityDecrease: 30
   speedMultiplier: 1
   speedAugmentor: 0.1
   maxSpeed: 15
   ballInitialForce: {x: 120, y: 300}
+  speedUp: 0
+  sizeUp: 0
+  scale: 1.53
