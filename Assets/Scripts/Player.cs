@@ -104,8 +104,9 @@ public class Player : MonoBehaviour
     public void Die()
     {
         Destroy(this.gameObject);
-
         Destroy(Instantiate(deathEffect.gameObject, transform.position, transform.rotation) as GameObject, 2.5f);
+
+        GameMaster.GM.deathsCounter++;
 
         LevelGenerator.levelGenerator.playerDead = true;
     }

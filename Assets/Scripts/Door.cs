@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
         {
             if (collision.transform.tag.Equals("Player"))
             {
-                //GameMaster.GM;
+                GameMaster.GM.LoadStats();
             }
         }
     }

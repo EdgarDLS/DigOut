@@ -61,7 +61,7 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void ResetPlayer()
+    public void ResetPlayer()
     {
         for (int i = 0; i < level.Length; i++)
         {
