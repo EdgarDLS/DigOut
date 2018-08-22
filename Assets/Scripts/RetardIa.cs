@@ -36,8 +36,14 @@ public class RetardIa : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.transform.tag.Equals("Player"))
+        {
+            collision.transform.GetComponent<Player>().Die();
+        }
+
         this.transform.position += speed * -velocity * 0.9f;
         direction = (int)Random.Range(0, 3.999999f);
+
         switch (direction)
         {
             case 0:

@@ -12,6 +12,5 @@ public class DrillUpScript : MonoBehaviour {
             collision.GetComponent<Player>().drillUp = true;
             Destroy(this.gameObject);
         }
-
     }
 }

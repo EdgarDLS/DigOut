@@ -55,10 +55,10 @@ public class KillerBall : MonoBehaviour
     {
         if (collision.transform.tag.Equals("Player"))
         {
-            myRigidbody2D.velocity = new Vector2(0, 0);
-            speedMultiplier = 1;
-
             collision.transform.GetComponent<Player>().Die();
+
+            speedMultiplier += speedAugmentor;
+            myRigidbody2D.AddForce(myRigidbody2D.velocity * speedMultiplier);
         }
 
         if ((myRigidbody2D.velocity.x < maxSpeed && myRigidbody2D.velocity.x > -maxSpeed) && ( myRigidbody2D.velocity.y < maxSpeed && myRigidbody2D.velocity.y > -maxSpeed))
