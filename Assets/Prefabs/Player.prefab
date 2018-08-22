@@ -102,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804631611703246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.447487, y: -1.712727, z: 0}
+  m_LocalPosition: {x: -10.277152, y: -5.300783, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4541493504301124}
@@ -272,12 +272,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be2afef45bea9d43af2393d459c5d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveJoystick: {fileID: 0}
   drillZone: {fileID: 1724300249933560}
   drill: {fileID: 1220964777770686}
   deathEffect: {fileID: 198525689040466208, guid: 381813e306ad0c449811f549b55f98c2,
     type: 2}
+  drillUp: 0
   speed: 100
-  drillingSpeed: 1.1
+  drillingSpeed: 0.6
+  drillDistance: 0.55
+  rotationLerpTime: 0.2
 --- !u!114 &114211679290034236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,7 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   makeBig: 0
   makeSmall: 0
-  drillZone: {fileID: 1724300249933560}
   scale: 6
 --- !u!212 &212176206902325458
 SpriteRenderer:
