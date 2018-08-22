@@ -9,9 +9,7 @@ public class PlayerSpeedUpScript : MonoBehaviour {
         if (collision.transform.tag.Equals("Player"))
         {
             collision.transform.GetComponent<Player>().speed *= factor;
-            GameMaster.GM.speedUp = true;
             Destroy(this.gameObject);
         }
-
     }
 }
